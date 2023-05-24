@@ -2,24 +2,31 @@
 import './UI_Login.css'
 
 //Importacion de Packages
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import Toast from 'react-bootstrap/Toast';
+import * as FcIcons from 'react-icons/fc'
+import * as IoIcons from 'react-icons/io5'
+import Logo from '../../../assets/Logo/Logo.svg';
+
 //import { useAuthStore } from '../../store/AuthStore';
 
 //Importacion de Controller
+import * as Controller_Autorizacion from '../../../Controllers/Controller_Autorizacion'
 
 //Datos del Formulario
 const DataForm = {
     email: "",
     password: ""
 }
+
+
 function UI_Login() {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); //Extrae la posicion de URL
 
     const [validated, setValidated] = useState(false);
     const [data, setForm] = useState(DataForm);
@@ -29,6 +36,7 @@ function UI_Login() {
 
     //Carga de datos a DataForm
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        
         const { name, value } = event.target
         setForm({
             ...data,
@@ -39,7 +47,17 @@ function UI_Login() {
 
     //Validacion de Formulario
     const handleSubmit = async (event: React.SyntheticEvent<HTMLFormElement>) => {
-
+        const form = event.currentTarget;
+        event.preventDefault();
+        if (form.checkValidity() === false) {
+            event.stopPropagation();
+        } else {
+            console.log("Enviando desde Vista ✅     Archivo: UI_Login.tsx")
+            //Si la funcion de Controller Inicio_Sesion() es falsa este habilitara una notificacion con el msj = Correo o contraseña incorrectos 🙁
+            if (await Controller_Autorizacion.Inicio_Sesion(data.email, data.password, navigate) == false) {
+                toggleShowA();
+            }
+        }
         setValidated(true);
     };
 
@@ -52,7 +70,10 @@ function UI_Login() {
             transition={{ duration: 0.5 }}
         >
             <div className="IU_Login contenedor_autorizacion">
-                <h1>Bienvenido</h1>
+                <div id='div-logo'>
+                <img src={Logo} id='LogoLogin'></img>
+                </div>
+                
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Tu correo electronico: </Form.Label>
@@ -63,13 +84,18 @@ function UI_Login() {
                         <Form.Control type="password" placeholder="Contraseña" name="password" onChange={onChange} required />
                     </Form.Group>
                     <Button className="btn" variant="primary" type="submit" >
-                        Iniciar Sesión
+                        Iniciar Sesión <IoIcons.IoLogIn size={25}/>
                     </Button>
                 </Form>
 
-                <h2>--- or ---</h2>
+                <hr className="hr-text" data-content="or"></hr>
+                
+                <Button className="btn GoogleButton" variant="primary" type="submit" >
+                    <FcIcons.FcGoogle size={25}/> Continuar con Google
+                </Button>
+
                 <Button className="btn" variant="primary" type="submit" >
-                    Registrate
+                    Registrate 
                 </Button>
                 <Button className="btn" variant="primary" type="submit" >
                     ¿Olvidaste tu contraseña?

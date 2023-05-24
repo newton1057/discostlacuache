@@ -2,11 +2,14 @@
 
 //  Importacion de Modulos
 import { NavigateFunction } from "react-router-dom";
-//import { Gestion_Autenticacion } from '../Models/Gestion_Autenticacion/Gestion_Autenticacion';
+import { Gestion_Autenticacion } from '../Models/Gestion_Autenticacion/Gestion_Autenticacion';
 
 //  Funciones
 //  Funcionalidad Iniciar Sesion 
 export async function Inicio_Sesion(Email:string, Password:string, navigate:NavigateFunction) : Promise<boolean> { 
+    console.log("Enviando desde Controller ✅     Archivo: Controller_Autorizacion.tsx");
+    const Autenticacion = new Gestion_Autenticacion(Email, Password);
+    Autenticacion.LoginC();
     //const Objeto_Autenticacion = new Gestion_Autenticacion( Email , Password ); //Crea objeto Autenticacion con los parametros de Email y Password
     if(false){ //Si el Email y Password son correctos este retornara true y el acceso te enviara a Home, si no retornara false
         RouterViews_Home(navigate);
@@ -32,6 +35,7 @@ export async function Recuperar_Password(Email:string, navigate:NavigateFunction
 
 
 export async function Login (Email:string, Password:string, navigate:NavigateFunction) : Promise<boolean> {
+    
     //const Objeto_Autenticacion = new Gestion_Autenticacion( Email , Password );
     
     //Si el Email y Password son correctos este retornara true y el acceso te enviara a Home, si no retornara false

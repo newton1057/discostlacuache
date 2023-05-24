@@ -21,12 +21,20 @@
     background-color: #F3E600 !important;
     border-color: #F3E600  !important;
     --bs-btn-color: #101820  !important;
+    border-radius: 20px !important;
+    
+}
+.GoogleButton{
+  background: white !important;
+  border-color: white  !important; 
+  --bs-btn-color: rgb(146, 146, 146)  !important;
 }
 
 .contenedor_autorizacion{
   width: 90%;
   margin: auto;
   /*margin-top: 30%;*/
+  
 }
 
 .btn{
@@ -88,3 +96,7 @@
   color: #888;
 }
 */
+
+.form-control{
+  border-radius: 20px !important;
+}
