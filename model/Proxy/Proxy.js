@@ -1,51 +1,72 @@
-/**
- * RealSubject contiene cierta lógica empresarial central.
- * Por lo general, RealSubjects son * capaces de realizar
- * un trabajo útil que también puede ser muy lento o sensible -  p.
- * Ej. corregir los datos de entrada.
- * Un Proxy puede resolver estos problemas sin ningún * cambio en el código de RealSubject.
- */
-var RealSubject = /** @class */ (function () {
-    function RealSubject() {
+var proxy = /** @class */ (function () {
+    function proxy(Server) {
+        this.Server = Server;
     }
-    RealSubject.prototype.request = function () {
-        console.log('Subject: Realizando una peticion http');
+    proxy.prototype.request = function () {
+        if (this.verificarAcceso()) {
+            this.Server.request();
+        }
     };
-    return RealSubject;
+    proxy.prototype.verificarAcceso = function () {
+        console.log("Validacion de Acceso correcta!!!");
+        return true;
+    };
+    return proxy;
 }());
-var PROXY = /** @class */ (function () {
-    function PROXY(realSubject) {
+var Server = /** @class */ (function () {
+    function Server() {
+    }
+    Server.prototype.request = function () {
+        console.log("Realizando peticion HTTP");
+    };
+    return Server;
+}());
+function solicitud(api) {
+    api.request();
+}
+var server = new Server();
+solicitud(server);
+var _proxy = new proxy(server);
+solicitud(_proxy);
+/*
+interface Subject {
+    request(): void;
+}
+
+class RealSubject implements Subject {
+    request(): void {
+        console.log('Subject: Realizando una peticion http');
+    }
+}
+
+
+
+class PROXY implements Subject {
+    private realSubject: RealSubject;
+    constructor(realSubject: RealSubject) {
         this.realSubject = realSubject;
     }
-    /**
-     * Las aplicaciones más comunes del patrón Proxy
-     * son la carga perezosa, caching, control de acceso,
-     *  registro, etc. Un Proxy puede realizar una de estas
-     * cosas y luego, dependiendo del resultado,
-     * pasar la ejecución a la el mismo método en un objeto RealSubjects vinculado.
-     */
-    PROXY.prototype.request = function () {
+
+    request(): void {
         if (this.checkAccess()) {
             this.realSubject.request();
             this.logAccess();
         }
-    };
-    PROXY.prototype.checkAccess = function () {
-        // Some real checks should go here.
+    }
+    private checkAccess(): boolean {
         console.log('Proxy: verificando el acceso de los datos.');
         return true;
-    };
-    PROXY.prototype.logAccess = function () {
+    }
+
+    private logAccess(): void {
         console.log('Proxy: logeando el accesso.');
-    };
-    return PROXY;
-}());
-function clientCode(subject) {
-    // ...
-    subject.request();
-    // ...
+    }
 }
-var realSubject = new RealSubject();
+function clientCode(subject: Subject) {
+    subject.request();
+}
+
+const realSubject = new RealSubject();
 clientCode(realSubject);
-var proxy = new PROXY(realSubject);
-clientCode(proxy);
+const proxy = new PROXY(realSubject);
+clientCode(proxy);*/ 

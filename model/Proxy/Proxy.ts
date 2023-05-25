@@ -1,4 +1,43 @@
 
+interface API {
+    request(): void;
+}
+
+class proxy implements API {
+    private Server: Server;
+
+    constructor(Server: Server) {
+        this.Server = Server;
+    }
+
+    public request(): void {
+        if (this.verificarAcceso()) {
+            this.Server.request();
+        }
+    }
+
+    private verificarAcceso(): boolean {
+        console.log("Validacion de Acceso correcta!!!");
+        return true;
+    }
+}
+
+class Server implements API {
+    public request(): void {
+        console.log("Realizando peticion HTTP");
+    }
+}
+
+function solicitud(api:API){
+    api.request();
+}
+
+const server = new Server();
+solicitud(server);
+const _proxy = new proxy(server);
+solicitud(_proxy)
+
+/*
 interface Subject {
     request(): void;
 }
@@ -39,4 +78,4 @@ function clientCode(subject: Subject) {
 const realSubject = new RealSubject();
 clientCode(realSubject);
 const proxy = new PROXY(realSubject);
-clientCode(proxy);
+clientCode(proxy);*/
