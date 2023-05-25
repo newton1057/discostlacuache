@@ -30,5 +30,6 @@ export class Autenticacion  {
             this.Email = Email;
             this.Password = Password;
         }
+        console.log("Objeto Autenticacion creado correctamente ✅");
     }
 }

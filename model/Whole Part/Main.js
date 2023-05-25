@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Gestion_Autenticacion_1 = require("./Gestion_Autenticacion");
+var Email = "newton1057@gmail.com";
+var Password = "12345";
+console.log("Main: " + Email + " + " + Password);
+var Auth = new Gestion_Autenticacion_1.Gestion_Autenticacion(Email, Password);
+var Datos = Auth.Login();
+Auth.Cambiar_Password(Datos, "NewPassword");
+console.log("Datos en Main: " + (Datos === null || Datos === void 0 ? void 0 : Datos.Autorizacion.Password));

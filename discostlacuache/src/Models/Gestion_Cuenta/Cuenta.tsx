@@ -37,5 +37,6 @@ export class Cuenta  {
         this.Apellido = Apellido;
         this.Fecha_Nacimiento = Fecha_Nacimiento;
         this.Nombre = Nombre;
+        console.log("Objeto Cuenta creado correctamente ✅")
     }
 }
