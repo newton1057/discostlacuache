@@ -1,5 +1,4 @@
 import { PaymentProcessor } from "./Pago";
-import { Data } from "../Whole Part/Data";
 
 export class PaymentManager {
   private paymentProcessor: PaymentProcessor;
@@ -12,7 +11,7 @@ export class PaymentManager {
     this.amount = amount;
   }
 
-  public processPayment(dataAccount: Data): boolean {
+  public processPayment(dataAccount: any): boolean {
     this.paymentProcessor.setPaymentMethod(this.paymentMethod);
     return this.paymentProcessor.doPayment(dataAccount, this.amount);
   }
