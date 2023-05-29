@@ -1,6 +1,3 @@
-import { Data } from "./Data";
-import { Gestion_Cuenta } from "./Gestion_Cuenta";
-
 export class BitcoinProxy {
     doPayment(dataAccount, amount) {
       const walletAddress = dataAccount.wallet_address;

@@ -30,4 +30,4 @@ const accountDetails: any = {
 const dataAccount: DataAccount = new DataAccount(paymentMethod, accountDetails);
 
 const paymentManager: PaymentManager = new PaymentManager(paymentMethod, amount);
-paymentManager.processPayment(dataAccount);
+paymentManager.processPayment(accountDetails);
