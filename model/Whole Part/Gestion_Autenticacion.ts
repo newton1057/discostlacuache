@@ -12,7 +12,7 @@ export class Gestion_Autenticacion {
     Login() {
         if (this.Autenticacion.Email === "newton1057@gmail.com" && this.Autenticacion.Password == "12345") {
             const Datos = new Data(this.Autenticacion, this.Cargar_Informacion_Cuenta());
-            console.log("Correcto Login + " + Datos.Personal.Apellido);
+            console.log("Correcto Login ");
             return Datos;
         } else {
             console.log("Incorrecto Login");
@@ -21,9 +21,9 @@ export class Gestion_Autenticacion {
 
     //Informacion de Cuenta
     Cargar_Informacion_Cuenta() {
-        const x = new Gestion_Cuenta().Obtener_Datos_Cuenta();
-        console.log(x.Apellido)
-        return x;
+        const data = new Gestion_Cuenta().Obtener_Datos_Cuenta();
+        console.log(data.Apellido)
+        return data;
     }
 
     Cambiar_Password(Datos: Data, Password:string){

@@ -18,7 +18,7 @@ class DataAccount {
   }
 }
 
-const paymentMethod: string = 'paypal';
+const paymentMethod: string = 'bitcoin';
 const amount: number = 100;
 const accountDetails: any = {
   paypal_email: 'example@example.com',

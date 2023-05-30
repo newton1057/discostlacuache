@@ -11,7 +11,7 @@ var Gestion_Autenticacion = /** @class */ (function () {
     Gestion_Autenticacion.prototype.Login = function () {
         if (this.Autenticacion.Email === "newton1057@gmail.com" && this.Autenticacion.Password == "12345") {
             var Datos = new Data_1.Data(this.Autenticacion, this.Cargar_Informacion_Cuenta());
-            console.log("Correcto Login + " + Datos.Personal.Apellido);
+            console.log("Correcto Login ");
             return Datos;
         }
         else {
@@ -20,9 +20,9 @@ var Gestion_Autenticacion = /** @class */ (function () {
     };
     //Informacion de Cuenta
     Gestion_Autenticacion.prototype.Cargar_Informacion_Cuenta = function () {
-        var x = new Gestion_Cuenta_1.Gestion_Cuenta().Obtener_Datos_Cuenta();
-        console.log(x.Apellido);
-        return x;
+        var data = new Gestion_Cuenta_1.Gestion_Cuenta().Obtener_Datos_Cuenta();
+        console.log(data.Apellido);
+        return data;
     };
     Gestion_Autenticacion.prototype.Cambiar_Password = function (Datos, Password) {
         Datos.Autorizacion.Password = Password;

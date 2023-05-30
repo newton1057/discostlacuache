@@ -10,8 +10,8 @@ var Gestion_Cuenta = /** @class */ (function () {
         var Nombre = "Eduardo Isaac";
         var Apellido = "Davila Bernal";
         var Fecha_Nacimiento = "12/07/2000";
-        var Data_Cuenta = new Cuenta_1.Cuenta(Apellido, Nombre, Fecha_Nacimiento);
-        return Data_Cuenta;
+        var _Cuenta = new Cuenta_1.Cuenta(Apellido, Nombre, Fecha_Nacimiento);
+        return _Cuenta;
     };
     return Gestion_Cuenta;
 }());

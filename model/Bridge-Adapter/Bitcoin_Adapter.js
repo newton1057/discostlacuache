@@ -1,18 +1,19 @@
-import { BitcoinProxy } from "./Bitcoin";
-
-export class BitcoinAdapter {
-    constructor(conversionRate) {
-      this.bitcoinProxy = new BitcoinProxy();
-      this.conversionRate = conversionRate;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BitcoinAdapter = void 0;
+var Bitcoin_1 = require("./Bitcoin");
+var BitcoinAdapter = /** @class */ (function () {
+    function BitcoinAdapter(conversionRate) {
+        this.bitcoinProxy = new Bitcoin_1.BitcoinProxy();
+        this.conversionRate = conversionRate;
     }
-  
-    doPayment(dataAccount, amount) {
-      const bitcoinAmount = this.convertToBitcoin(amount);
-      return this.bitcoinProxy.doPayment(dataAccount, bitcoinAmount);
-    }
-  
-    convertToBitcoin(amount) {
-      return amount / this.conversionRate;
-    }
-  }
-  
+    BitcoinAdapter.prototype.doPayment = function (dataAccount, amount) {
+        var bitcoinAmount = this.convertToBitcoin(amount);
+        return this.bitcoinProxy.doPayment(dataAccount, bitcoinAmount);
+    };
+    BitcoinAdapter.prototype.convertToBitcoin = function (amount) {
+        return amount / this.conversionRate;
+    };
+    return BitcoinAdapter;
+}());
+exports.BitcoinAdapter = BitcoinAdapter;

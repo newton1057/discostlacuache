@@ -3,12 +3,14 @@ import { Cuenta } from "./Cuenta";
 import { Data } from "./Data";
 
 export class Gestion_Cuenta {
+    _Cuenta : Cuenta;
     //Recuperar Datos
+    
     Obtener_Datos_Cuenta(){
         const Nombre = "Eduardo Isaac";
         const Apellido = "Davila Bernal";
         const Fecha_Nacimiento = "12/07/2000";
-        const Data_Cuenta = new Cuenta(Apellido,Nombre,Fecha_Nacimiento);
-        return Data_Cuenta;
+        const _Cuenta = new Cuenta(Apellido,Nombre,Fecha_Nacimiento);
+        return _Cuenta;
     }
 }
