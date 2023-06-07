@@ -36,7 +36,7 @@ function UI_Login() {
 
     //Carga de datos a DataForm
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        
+
         const { name, value } = event.target
         setForm({
             ...data,
@@ -71,9 +71,9 @@ function UI_Login() {
         >
             <div className="IU_Login contenedor_autorizacion">
                 <div id='div-logo'>
-                <img src={Logo} id='LogoLogin'></img>
+                    <img src={Logo} id='LogoLogin'></img>
                 </div>
-                
+
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Tu correo electronico: </Form.Label>
@@ -84,22 +84,25 @@ function UI_Login() {
                         <Form.Control type="password" placeholder="Contraseña" name="password" onChange={onChange} required />
                     </Form.Group>
                     <Button className="btn" variant="primary" type="submit" >
-                        Iniciar Sesión <IoIcons.IoLogIn size={25}/>
+                        Iniciar Sesión <IoIcons.IoLogIn size={25} />
                     </Button>
                 </Form>
 
                 <hr className="hr-text" data-content="or"></hr>
-                
-                <Button className="btn GoogleButton" variant="primary" type="submit" >
-                    <FcIcons.FcGoogle size={25}/> Continuar con Google
-                </Button>
 
-                <Button className="btn" variant="primary" type="submit" >
-                    Registrate 
-                </Button>
-                <Button className="btn" variant="primary" type="submit" >
-                    ¿Olvidaste tu contraseña?
-                </Button>
+                <div id='botones_login'>
+                    <Button className="btn GoogleButton" variant="primary" type="submit" >
+                        <FcIcons.FcGoogle size={25} /> Continuar con Google
+                    </Button>
+
+                    <Button className="btn" variant="primary" type="submit" >
+                        Registrate
+                    </Button>
+                    <Button className="btn" variant="primary" type="submit" >
+                        ¿Olvidaste tu contraseña?
+                    </Button>
+                </div>
+
 
 
             </div>

@@ -1,0 +1,31 @@
+.NavBar{
+    background-color: #F3E600;
+    height: 60px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.2);
+    color: #101820;
+    padding: 5%;
+    position: fixed;
+  top:  0px;
+  left: 0px;
+}
+
+.NavBar #der{
+    display: flex;
+    align-items: center;
+
+}
+
+.NavBar #izq{
+    width: 22%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.NavBar img{
+    width: 150px;
+}

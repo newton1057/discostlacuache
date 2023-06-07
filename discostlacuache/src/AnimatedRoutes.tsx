@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom'
 // Importacion de IU ubicada en Views
 //import IU_Login from './Views/IU_Login/IU_Login'
 import UI_Login from "./Views/UI/UI_Login/UI_Login";
+import UI_Home from "./Views/UI/UI_Home/UI_Home"
 //import { ProctectedRoute } from "./ProctectedRoute";
 
 
@@ -19,6 +20,7 @@ function AnimatedRoutes() {
         <AnimatePresence mode="wait">
             <Routes key={location.pathname} location={location}>
                 <Route path='/' element={<UI_Login />} />
+                <Route path='/Home' element={<UI_Home/>} />
             </Routes>
         </AnimatePresence>
     )

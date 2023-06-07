@@ -43,3 +43,7 @@
     margin-right: auto;
   }
 
+#botones_login{
+  display: grid;
+  gap: 20px;
+}

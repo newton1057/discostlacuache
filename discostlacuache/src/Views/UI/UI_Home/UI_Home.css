@@ -1,0 +1,28 @@
+.App{
+    align-items: baseline;
+}
+.Home{
+    width: 100%;
+    align-items: baseline;
+    margin-top: 80px;
+}
+.cont{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 5% ;
+}
+
+.Album{
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.Listas_Albums{
+    width: 100%;
+    margin-bottom: 5%;
+}
+.Listas_Album{
+    width: 100px;
+    border: 2px solid yellow;
+    border-color: yellow;
+}
