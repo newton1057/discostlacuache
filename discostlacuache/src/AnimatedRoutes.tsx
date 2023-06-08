@@ -9,6 +9,7 @@ import { Routes, Route } from 'react-router-dom'
 //import IU_Login from './Views/IU_Login/IU_Login'
 import UI_Login from "./Views/UI/UI_Login/UI_Login";
 import UI_Home from "./Views/UI/UI_Home/UI_Home"
+import UI_Producto_Fisico from "./Views/UI/UI_Producto/UI_Producto_Fisico";
 //import { ProctectedRoute } from "./ProctectedRoute";
 
 
@@ -21,6 +22,7 @@ function AnimatedRoutes() {
             <Routes key={location.pathname} location={location}>
                 <Route path='/' element={<UI_Login />} />
                 <Route path='/Home' element={<UI_Home/>} />
+                <Route path='/Producto' element={<UI_Producto_Fisico/>} />
             </Routes>
         </AnimatePresence>
     )
