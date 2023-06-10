@@ -3,6 +3,10 @@
   src: url('../src/assets/Fonts/Gilroy-ExtraBold.otf');
 }
 
+body{
+  background-color: #101820 !important;
+}
+
 .App {
   display: flex;
   justify-content: center;
@@ -25,10 +29,28 @@
     color: #101820 !important;
     
 }
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:visited,
+.btn-secondary:focus {
+    background-color: #101820 !important;
+    border-color: #F3E600  !important;
+    --bs-btn-color: #101820  !important;
+    border-radius: 20px !important;
+    color: #F3E600 !important;
+    
+} 
+
 .GoogleButton{
   background: white !important;
   border-color: white  !important; 
   --bs-btn-color: rgb(146, 146, 146)  !important;
+}
+
+.Bold_Icon{
+  stroke-width: 0.5px;
 }
 
 .contenedor_autorizacion{

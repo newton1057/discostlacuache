@@ -1,16 +1,41 @@
 .Producto_Fisico{
     margin-top: 100px;
-    align-items: center;
+    width: 80%;
+    text-align: center;
 }
 
 .Producto_Fisico_img{
-    width: 200px;
+    width: 250px;
+    margin: auto;
+    border: 4px solid #F3E600;
 }
 
 .Producto_Fisico_Nombre_Album{
     text-align: center;
+    margin-top: 5%;
+}
+.Producto_Fisico_Contenedor{
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+.Producto_Fisico_Contenedor_Opciones{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.Producto_Fisico_Contenedor_Opciones{
-    
+.Producto_Fisico_Contenedor_Calificacion{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
 }
+
+.Producto_Fisico_Contenedor_Buttons{
+    display: grid;
+    gap: 20px;
+}
+
+

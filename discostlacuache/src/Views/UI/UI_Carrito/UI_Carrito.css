@@ -1,0 +1,14 @@
+.Carrito{
+    margin-top: 90px;
+    width: 85%;
+    text-align: left;
+}
+
+.Carrito h1{
+    margin-bottom: 10%;
+}
+
+#Carrito_Productos{
+    margin-top: 5%;
+    margin-bottom: 10%;
+}

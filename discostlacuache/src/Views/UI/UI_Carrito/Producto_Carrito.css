@@ -1,0 +1,45 @@
+.Producto_Carrito{
+    display: flex;
+    text-align: start;
+}
+
+.Producto_Carrito_Imagen{
+    width: 30%;
+}
+.Producto_Carrito img{
+    width: 90px;
+}
+
+.Producto_Carrito_Info{
+    width: 50%;
+    padding: 10px;
+}
+
+.Cantidad{
+    width: 50% !important;
+    text-align:center;
+}
+
+#Controls{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#Controls h3{
+    margin-bottom: 0;
+}
+
+.Producto_Carrito_Info ::placeholder {
+    text-align: center; 
+}
+
+.Producto_Carrito_Boton{
+    width: 20%;
+    padding: 10px;
+    text-align: end;
+}
+
+#Costo{
+    text-align: end;
+}

@@ -29,9 +29,10 @@ SwiperCore.use([Virtual, Navigation, Pagination]);
 
 function UI_Home() {
     return (
-
+        <>
+        <NavBar></NavBar>
         <div className='Home'>
-            <NavBar></NavBar>
+            
             <div className='cont'>
                 <h1>Bienvenidos</h1>
             </div>
@@ -129,7 +130,7 @@ function UI_Home() {
             </Swiper>
             </div>
         </div>
-
+        </>
     )
 }
 
