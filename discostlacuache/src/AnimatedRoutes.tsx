@@ -1,7 +1,7 @@
 //  Realiza la animacion entre rutas
 
 //  Importacion de Modulos necesario
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { Routes, Route } from 'react-router-dom'
 
@@ -20,12 +20,14 @@ function AnimatedRoutes() {
     //  Se tienen que colocar todas las rutas para que se tenga animacion entre ellas
     return (
         <AnimatePresence mode="wait">
+           
             <Routes key={location.pathname} location={location}>
                 <Route path='/' element={<UI_Login />} />
                 <Route path='/Home' element={<UI_Home/>} />
                 <Route path='/Producto' element={<UI_Producto_Fisico/>} />
                 <Route path='/Carrito' element={<UI_Carrito/>} />
             </Routes>
+            
         </AnimatePresence>
     )
 }

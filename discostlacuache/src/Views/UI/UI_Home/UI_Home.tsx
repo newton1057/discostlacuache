@@ -30,6 +30,13 @@ SwiperCore.use([Virtual, Navigation, Pagination]);
 function UI_Home() {
     return (
         <>
+        <motion.div
+            className="Animated"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+        >
         <NavBar></NavBar>
         <div className='Home'>
             
@@ -130,6 +137,7 @@ function UI_Home() {
             </Swiper>
             </div>
         </div>
+        </motion.div>
         </>
     )
 }

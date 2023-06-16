@@ -15,9 +15,7 @@ function App() {
         <AnimatedRoutes/>
       </BrowserRouter>
     </div>
-
   )
-  
 }
 
 export default App
