@@ -2,16 +2,7 @@
 import './UI_Home.css'
 
 //Importacion de Packages
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
 import { motion } from "framer-motion"
-import { useNavigate } from "react-router-dom"
-import ToastContainer from 'react-bootstrap/ToastContainer';
-import Toast from 'react-bootstrap/Toast';
-import * as FcIcons from 'react-icons/fc'
-import * as IoIcons from 'react-icons/io5'
-//import Logo from '../../../assets/Logo/Logo.svg';
 import NavBar from '../../Components/NavBar/NavBar'
 //import { useAuthStore } from '../../store/AuthStore';
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -24,8 +15,6 @@ SwiperCore.use([Virtual, Navigation, Pagination]);
 
 //Importacion de Controller
 //import * as Controller_Autorizacion from '../../../Controllers/Controller_Autorizacion'
-
-
 
 function UI_Home() {
     return (
