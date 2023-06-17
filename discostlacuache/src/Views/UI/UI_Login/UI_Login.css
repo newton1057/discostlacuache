@@ -2,6 +2,11 @@
     margin-top: 40px;
     text-align: end;
 }
+
+.IU_Login{
+  margin-top: 50px !important;
+}
+
 .hr-text {
     line-height: 1em;
     position: relative;

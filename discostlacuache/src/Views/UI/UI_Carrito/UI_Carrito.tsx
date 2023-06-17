@@ -18,7 +18,7 @@ function UI_Carrito() {
                         Costo="$250.00" />
                 </div>
                 <Button className="btn" variant="primary" type="submit" >
-                    Pagar ahora 
+                    Comprar ahora
                 </Button>
             </div>
 

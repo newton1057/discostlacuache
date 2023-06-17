@@ -1,0 +1,43 @@
+.UI_Elegir_Direccion{
+    margin-top: 90px;
+    width: 85%;
+    text-align: left;
+}
+
+.form-check-input:checked{
+    background-color: #F3E600 !important;
+    border-color: #F3E600 !important;
+}
+
+.Opcion_Direccion{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.Card_Direccion{
+    width: 90%;
+    background-color: #F3E600;
+    color: #101820;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.Card_Direccion h6{
+    font-size: 13px;
+}
+
+.Card_Direccion_Ciudad_Alcaldia{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Elegir_Direcciones_Buttons{
+    display: grid;
+    gap: 20px;
+}

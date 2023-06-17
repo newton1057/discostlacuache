@@ -1,0 +1,51 @@
+.UI_Reproductor_Musica{
+    width: 100%;
+    margin-top: 90px;
+    text-align: center;
+}
+
+.UI_Reproductor_Musica img{
+    width: 250px;
+    margin: 20px;
+}
+.rhap_container {
+    background-color: #101820 !important;
+    width: 90% !important;
+    margin: auto;
+    box-shadow: 0px !important;
+}
+
+
+.rhap_time{
+    color: #F3E600  !important;
+}
+
+.rhap_additional-controls{
+    display: none !important;
+}
+
+.rhap_progress-bar-show-download{
+    background-color: #F3E600  !important;
+}
+
+.rhap_progress-indicator{
+    background-color: #F3E600  !important;
+
+}
+.rhap_download-progress{
+    background-color: #726e18  !important;
+
+}
+.rhap_volume-controls{
+    display: none !important;
+}
+
+.rhap_controls-section{
+    margin: auto;
+    text-align: center;
+}
+
+.rhap_main-controls button{
+    color: #F3E600  !important;
+
+}

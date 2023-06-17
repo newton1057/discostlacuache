@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { motion } from "framer-motion"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import Toast from 'react-bootstrap/Toast';
 import * as FcIcons from 'react-icons/fc'
@@ -95,12 +95,16 @@ function UI_Login() {
                         <FcIcons.FcGoogle size={25} /> Continuar con Google
                     </Button>
 
+                    <Link to="/Registrate">
                     <Button className="btn" variant="primary" type="submit" >
                         Registrate
                     </Button>
+                    </Link>
+                    <Link to="/OlvidasteContrasena">
                     <Button className="btn" variant="primary" type="submit" >
                         ¿Olvidaste tu contraseña?
                     </Button>
+                    </Link>
                 </div>
 
 

@@ -1,0 +1,29 @@
+.UI_Opciones_Entrega{
+    margin-top: 90px;
+    width: 85%;
+    text-align: left;
+}
+
+.Opciones_Entrega{
+    margin-top: 40px;
+    display: grid;
+    gap: 20px;
+    
+}
+
+.Opciones_Entrega h3{
+    margin-bottom: 0px;
+}
+
+.Opcion_Entrega{
+    width: 100%;
+    background-color: #F3E600;
+    color: #101820;
+    padding: 20px !important;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.Bold_Icon{
+    stroke-width: 0px;
+}

@@ -23,6 +23,7 @@
     align-items: center;
 }
 
+
 .NavBar #izq {
     width: 22%;
     display: flex;
@@ -89,7 +90,7 @@
 }
 
 .nav-text a:hover{
-    background-color: #F19953;
+    background-color: #b9b230;
 }
 
 .nav-menu-items{

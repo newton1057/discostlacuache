@@ -1,0 +1,21 @@
+.UI_Metodos_Pago{
+    margin-top: 90px;
+    width: 85%;
+    text-align: left;
+}
+
+.MetodosPago{
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    display: grid;
+    gap: 30px;
+}
+
+.MetodoPago{
+    background-color: #F3E600;
+    color: #101820;
+    text-align: center;
+    border-radius: 20px;
+    padding: 30px;
+}

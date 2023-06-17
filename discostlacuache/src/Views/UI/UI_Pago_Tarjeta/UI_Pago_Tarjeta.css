@@ -1,0 +1,20 @@
+.UI_Pago_Tarjeta{
+    margin-top: 90px;
+    width: 85%;
+    text-align: left;
+}
+.Data_Tarjeta{
+    margin-top: 30px;
+}
+.Data_TarjetaPago_Box{
+    display: flex;
+    gap: 60px;
+}
+
+.UI_Pago_Tarjeta ::placeholder {
+    text-align: center ; 
+}
+ 
+.UI_Pago_Tarjeta input {
+    text-align: center ;
+}
