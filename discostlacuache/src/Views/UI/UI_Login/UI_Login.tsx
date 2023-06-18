@@ -36,7 +36,6 @@ function UI_Login() {
 
     //Carga de datos a DataForm
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-
         const { name, value } = event.target
         setForm({
             ...data,
@@ -52,7 +51,7 @@ function UI_Login() {
         if (form.checkValidity() === false) {
             event.stopPropagation();
         } else {
-            console.log("Enviando desde Vista ✅     Archivo: UI_Login.tsx")
+            console.log("Enviando desde Vista ✅  wewqe   Archivo: UI_Login.tsx")
             //Si la funcion de Controller Inicio_Sesion() es falsa este habilitara una notificacion con el msj = Correo o contraseña incorrectos 🙁
             if (await Controller_Autorizacion.Inicio_Sesion(data.email, data.password, navigate) == false) {
                 toggleShowA();
@@ -111,12 +110,12 @@ function UI_Login() {
 
             </div>
             <ToastContainer className="p-3" position="middle-center">
-                <Toast show={showA} bg="light">
-                    <Toast.Header closeButton={false}>
+                <Toast show={showA}>
+                    <Toast.Header closeButton={false} >
                     </Toast.Header>
                     <Toast.Body >
                         Correo o contraseña incorrectos 🙁
-                        <Button className="btn" variant="primary" onClick={toggleShowA}>
+                        <Button className="btn" variant="secondary" onClick={toggleShowA}>
                             Aceptar
                         </Button>
                     </Toast.Body>

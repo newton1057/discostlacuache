@@ -1,8 +1,5 @@
-
-
-import './UI_Olvidaste_Contrasena.css'
-
 //Importacion de CSS
+import './UI_Olvidaste_Contrasena.css'
 
 //Importacion de Packages
 import React, { useState } from 'react'
@@ -12,10 +9,8 @@ import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import Toast from 'react-bootstrap/Toast';
-import * as FcIcons from 'react-icons/fc'
-import * as IoIcons from 'react-icons/io5'
-import Logo from '../../../assets/Logo/Logo.svg';
 import {MdLockReset} from 'react-icons/md'
+
 //import { useAuthStore } from '../../store/AuthStore';
 
 //Importacion de Controller
@@ -24,7 +19,7 @@ import * as Controller_Autorizacion from '../../../Controllers/Controller_Autori
 //Datos del Formulario
 const DataForm = {
     email: "",
-    password: ""
+    telefono: ""
 }
 
 function UI_Olvidaste_Contrasena() {
@@ -35,7 +30,8 @@ function UI_Olvidaste_Contrasena() {
 
     const [showA, setShowA] = useState(false);
     const toggleShowA = () => setShowA(!showA);
-
+    const [showB, setShowB] = useState(false);
+    const toggleShowB = () => setShowB(!showA);
     //Carga de datos a DataForm
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
@@ -56,8 +52,10 @@ function UI_Olvidaste_Contrasena() {
         } else {
             console.log("Enviando desde Vista ✅     Archivo: UI_Login.tsx")
             //Si la funcion de Controller Inicio_Sesion() es falsa este habilitara una notificacion con el msj = Correo o contraseña incorrectos 🙁
-            if (await Controller_Autorizacion.Inicio_Sesion(data.email, data.password, navigate) == false) {
+            if (await Controller_Autorizacion.Recuperar_Password(data.email, navigate) == false) {
                 toggleShowA();
+            }else{
+                toggleShowB();
             }
         }
         setValidated(true);
@@ -84,7 +82,7 @@ function UI_Olvidaste_Contrasena() {
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Telefono: </Form.Label>
-                        <Form.Control type="number" placeholder="Telefono" name="email" onChange={onChange} required />
+                        <Form.Control type="number" placeholder="Telefono" name="email" onChange={onChange} disabled />
                     </Form.Group>
                     
                     <Button className="btn" variant="primary" type="submit" >
@@ -99,12 +97,24 @@ function UI_Olvidaste_Contrasena() {
 
             </div>
             <ToastContainer className="p-3" position="middle-center">
-                <Toast show={showA} bg="light">
+                <Toast show={showA} >
                     <Toast.Header closeButton={false}>
                     </Toast.Header>
                     <Toast.Body >
-                        Correo o contraseña incorrectos 🙁
-                        <Button className="btn" variant="primary" onClick={toggleShowA}>
+                        Correo no registrado 🙁
+                        <Button className="btn" variant="secondary" onClick={toggleShowA}>
+                            Aceptar
+                        </Button>
+                    </Toast.Body>
+                </Toast>
+            </ToastContainer>
+            <ToastContainer className="p-3" position="middle-center">
+                <Toast show={showB} >
+                    <Toast.Header closeButton={false}>
+                    </Toast.Header>
+                    <Toast.Body >
+                        Contraseña restablecida, revisa tu correo electronico
+                        <Button className="btn" variant="secondary" onClick={() => Controller_Autorizacion.RouterViews_Iniciar_Sesion(navigate)}>
                             Aceptar
                         </Button>
                     </Toast.Body>

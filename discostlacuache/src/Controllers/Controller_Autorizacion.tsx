@@ -1,17 +1,14 @@
 // Capa Controller - Autorizacion
-
 //  Importacion de Modulos
 import { NavigateFunction } from "react-router-dom";
 import { Gestion_Autenticacion } from '../Models/Gestion_Autenticacion/Gestion_Autenticacion';
-
+import { Gestion_Cuenta } from "../Models/Gestion_Cuenta/Gestion_Cuenta";
 //  Funciones
 //  Funcionalidad Iniciar Sesion 
 export async function Inicio_Sesion(Email:string, Password:string, navigate:NavigateFunction) : Promise<boolean> { 
     console.log("Enviando desde Controller ✅     Archivo: Controller_Autorizacion.tsx");
     const Autenticacion = new Gestion_Autenticacion(Email, Password);
-    Autenticacion.LoginC();
-    //const Objeto_Autenticacion = new Gestion_Autenticacion( Email , Password ); //Crea objeto Autenticacion con los parametros de Email y Password
-    if(false){ //Si el Email y Password son correctos este retornara true y el acceso te enviara a Home, si no retornara false
+    if( await Autenticacion.Login()){ //Si el Email y Password son correctos este retornara true y el acceso te enviara a Home, si no retornara false
         RouterViews_Home(navigate);
         return true;
     }else{
@@ -19,10 +16,21 @@ export async function Inicio_Sesion(Email:string, Password:string, navigate:Navi
     }
 };
 
+export async function Registrarme(Nombres:string, Apellidos: string, Telefono: string, Email:string, Password:string, navigate:NavigateFunction): Promise<boolean> {
+    const Autenticacion = new Gestion_Autenticacion(Email, Password);
+    const Cuenta = new Gestion_Cuenta(Nombres, Telefono, Apellidos);
+    if(await Autenticacion.Registrarme(Cuenta)){
+        return true;
+    }else{
+        return false
+    }
+}
+
 //Funcionalidad Recuperar_Password
 export async function Recuperar_Password(Email:string, navigate:NavigateFunction) : Promise<boolean> {
     //const Objeto_Autenticacion = new Gestion_Autenticacion(Email);  //Crea objeto Autenticacion con los parametros de Email
-    if(false){ //Si el Email ha sido correcto este retornara true, si no retornara false
+    const Autenticacion = new Gestion_Autenticacion(Email);
+    if(await Autenticacion.RestablecerPassword()){ //Si el Email ha sido correcto este retornara true, si no retornara false
         console.log("Controller Correcto ResetPassword")
         //Objeto_Autenticacion.Enviar_Email_Recuperar_Password();
         return true;
@@ -53,7 +61,7 @@ export async function Login (Email:string, Password:string, navigate:NavigateFun
 //  RouterViews
 //  Ruta a Home
 export function RouterViews_Home(navigate:NavigateFunction) : void{
-    navigate('/Home');
+    navigate('/');
 }
 
 //  Ruta a RecuperarPassword
@@ -68,5 +76,5 @@ export function RouterViews_Registrarme(navigate:NavigateFunction) : void{
 
 //  Ruta a Iniciar Sesion
 export function RouterViews_Iniciar_Sesion(navigate:NavigateFunction) : void{
-    navigate('/');
+    navigate('/Login');
 }

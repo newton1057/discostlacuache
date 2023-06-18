@@ -52,3 +52,20 @@
   display: grid;
   gap: 20px;
 }
+
+
+.toast {
+  background-color: #F3E600 !important;
+  color: #101820;
+}
+
+.toast-header{
+  background-color: #F3E600 !important;
+}
+
+.toast-body{
+  color: #101820;
+  text-align: center;
+  display: grid;
+  gap: 20px;
+}

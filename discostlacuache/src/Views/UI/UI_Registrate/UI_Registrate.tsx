@@ -24,6 +24,9 @@ import * as Controller_Autorizacion from '../../../Controllers/Controller_Autori
 
 //Datos del Formulario
 const DataForm = {
+    nombres: "",
+    apellidos: "",
+    telefono: "",
     email: "",
     password: ""
 }
@@ -36,6 +39,9 @@ function UI_Registrate() {
 
     const [showA, setShowA] = useState(false);
     const toggleShowA = () => setShowA(!showA);
+
+    const [showB, setShowB] = useState(false);
+    const toggleShowB = () => setShowB(!showB);
 
     //Carga de datos a DataForm
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,8 +63,10 @@ function UI_Registrate() {
         } else {
             console.log("Enviando desde Vista ✅     Archivo: UI_Login.tsx")
             //Si la funcion de Controller Inicio_Sesion() es falsa este habilitara una notificacion con el msj = Correo o contraseña incorrectos 🙁
-            if (await Controller_Autorizacion.Inicio_Sesion(data.email, data.password, navigate) == false) {
+            if (await Controller_Autorizacion.Registrarme(data.nombres, data.apellidos, data.telefono, data.email, data.password, navigate) == false) {
                 toggleShowA();
+            }else{
+                toggleShowB();
             }
         }
         setValidated(true);
@@ -78,15 +86,15 @@ function UI_Registrate() {
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Nombre(s): </Form.Label>
-                        <Form.Control type="text" placeholder="Introduce tu nombre" name="email" onChange={onChange} required />
+                        <Form.Control type="text" placeholder="Introduce tu nombre" name="nombres" onChange={onChange} required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Apellidos: </Form.Label>
-                        <Form.Control type="text" placeholder="Introduce tus apellidos" name="email" onChange={onChange} required />
+                        <Form.Control type="text" placeholder="Introduce tus apellidos" name="apellidos" onChange={onChange} required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Telefono: </Form.Label>
-                        <Form.Control type="text" placeholder="Telefono" name="email" onChange={onChange} required />
+                        <Form.Control type="text" placeholder="Telefono" name="telefono" onChange={onChange} required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Correo electronico: </Form.Label>
@@ -94,27 +102,33 @@ function UI_Registrate() {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Contraseña: </Form.Label>
-                        <Form.Control type="text" placeholder="email@example.com" name="email" onChange={onChange} required />
+                        <Form.Control type="text" placeholder="email@example.com" name="password" onChange={onChange} required />
                     </Form.Group>
                     
                     <Button className="btn" variant="primary" type="submit" >
                         Registrate <IoIcons.IoLogIn size={25} />
                     </Button>
                 </Form>
-
-
-                
-
-
-
             </div>
             <ToastContainer className="p-3" position="middle-center">
-                <Toast show={showA} bg="light">
+                <Toast show={showA} >
                     <Toast.Header closeButton={false}>
                     </Toast.Header>
                     <Toast.Body >
-                        Correo o contraseña incorrectos 🙁
+                        Usuario ya registrado
                         <Button className="btn" variant="primary" onClick={toggleShowA}>
+                            Aceptar
+                        </Button>
+                    </Toast.Body>
+                </Toast>
+            </ToastContainer>
+            <ToastContainer className="p-3" position="middle-center">
+                <Toast show={showB} >
+                    <Toast.Header closeButton={false}>
+                    </Toast.Header>
+                    <Toast.Body >
+                        Registro exitoso
+                        <Button className="btn" variant="primary" onClick={() => Controller_Autorizacion.RouterViews_Iniciar_Sesion(navigate)}>
                             Aceptar
                         </Button>
                     </Toast.Body>

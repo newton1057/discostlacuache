@@ -5,7 +5,7 @@ import { Data } from "../Data";
 export class Gestion_Cuenta {
     Cuenta: Cuenta;
 
-    constructor (nombre: string, fecha_nacimiento: string, apellido: string){
-        this.Cuenta = new Cuenta(nombre, fecha_nacimiento, apellido);
+    constructor (nombre: string, telefono: string, apellido: string){
+        this.Cuenta = new Cuenta(apellido, telefono, nombre);
     }
 }
