@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser'
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { collection, getDocs, getFirestore, doc, getDoc, setDoc, addDoc , query } from "firebase/firestore";
 import jsonwebtoken from 'jsonwebtoken';
 import dotenv from 'dotenv'
@@ -15,10 +14,7 @@ app.use(cors({
     credentials: true 
 }));
 app.use(express.json());
-
-
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 const firebaseConfig = {
     apiKey: "AIzaSyCXjucrPlBpgIjM2EwQepFQCgSQIGXmoUg",
@@ -32,7 +28,6 @@ const firebaseConfig = {
 };
 
 const db = getFirestore(initializeApp(firebaseConfig));
-
 
 app.post('/RegistrarUsuario', async function (req, res) {
     // Validar si existe
@@ -51,7 +46,6 @@ app.post('/RegistrarUsuario', async function (req, res) {
             email: email,
             password: password
         })
-
         //Data Personal
         const nombres = req.body.nombres;
         const apellidos = req.body.apellidos;
@@ -99,13 +93,14 @@ app.post('/setAlbum', async function(req, res){
 app.post('/getAlbums', async function(req,res){
     const r_albums = query(collection(db,"Products", "Music","Albums"));
     const albums = await getDocs(r_albums);
+    const response = [];
+
     albums.forEach((doc) => {
         console.log(doc.id, " => ", doc.data());
+        response.push(doc.data());
     })
 
-    res.status(200).json({
-        message: "Albums obtenidos"
-    })
+    res.send({ "albums" : response})
 })
 
 app.post('/IniciarSesion', async function (req, res) {
@@ -137,6 +132,9 @@ app.post('/IniciarSesion', async function (req, res) {
     }
 });
 
+app.post('/CambiarPassword', async function(req, res){
+
+})
 app.post('/RecuperarPassword', async function(req,res){
     const email = req.body.email;
     const user = await getDoc(doc(db, "Usuarios", email));

@@ -4,7 +4,6 @@ import './UI_Home.css'
 //Importacion de Packages
 import { motion } from "framer-motion"
 import NavBar from '../../Components/NavBar/NavBar'
-//import { useAuthStore } from '../../store/AuthStore';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -12,13 +11,24 @@ import { Autoplay } from "swiper";
 import "swiper/css/navigation";
 import SwiperCore, { Virtual, Navigation, Pagination } from 'swiper';
 import { Link } from 'react-router-dom';
-import UI_Producto_Fisico from '../UI_Producto/UI_Producto_Fisico';
 SwiperCore.use([Virtual, Navigation, Pagination]);
 
 //Importacion de Controller
-//import * as Controller_Autorizacion from '../../../Controllers/Controller_Autorizacion'
+import * as Controller_Home from '../../../Controllers/Controller_Home';
+import { useCallback, useEffect, useState } from 'react';
 
 function UI_Home() {
+    const [Albums, setAlbums] = useState<any[]>([])
+    
+    const getAlbums = useCallback(async () => {
+        const Products = await Controller_Home.ObtenerAlbums();
+        setAlbums(Products)
+    },[])
+
+    useEffect(() => {
+        getAlbums()
+    }, [getAlbums])
+
     return (
         <>
             <motion.div
@@ -58,6 +68,7 @@ function UI_Home() {
                             <img className='Album' src='https://img.freepik.com/vector-premium/plantilla-cartel-o-folleto-horizontal-evento-musical-diseno-colorido-degradado_85212-212.jpg'></img>
                         </SwiperSlide>
                     </Swiper>
+                    
                     <div className='cont'>
                         <h3>Ultimos exitos</h3>
                     </div>
