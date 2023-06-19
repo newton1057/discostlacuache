@@ -24,10 +24,8 @@ const DataForm = {
     password: ""
 }
 
-
 function UI_Login() {
     const navigate = useNavigate(); //Extrae la posicion de URL
-
     const [validated, setValidated] = useState(false);
     const [data, setForm] = useState(DataForm);
 
@@ -51,8 +49,6 @@ function UI_Login() {
         if (form.checkValidity() === false) {
             event.stopPropagation();
         } else {
-            console.log("Enviando desde Vista ✅  wewqe   Archivo: UI_Login.tsx")
-            //Si la funcion de Controller Inicio_Sesion() es falsa este habilitara una notificacion con el msj = Correo o contraseña incorrectos 🙁
             if (await Controller_Autorizacion.Inicio_Sesion(data.email, data.password, navigate) == false) {
                 toggleShowA();
             }
@@ -72,7 +68,6 @@ function UI_Login() {
                 <div id='div-logo'>
                     <img src={Logo} id='LogoLogin'></img>
                 </div>
-
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Tu correo electronico: </Form.Label>
@@ -86,28 +81,23 @@ function UI_Login() {
                         Iniciar Sesión <IoIcons.IoLogIn size={25} />
                     </Button>
                 </Form>
-
                 <hr className="hr-text" data-content="or"></hr>
-
                 <div id='botones_login'>
                     <Button className="btn GoogleButton" variant="primary" type="submit" >
                         <FcIcons.FcGoogle size={25} /> Continuar con Google
                     </Button>
 
                     <Link to="/Registrate">
-                    <Button className="btn" variant="primary" type="submit" >
-                        Registrate
-                    </Button>
+                        <Button className="btn" variant="primary" type="submit" >
+                            Registrate
+                        </Button>
                     </Link>
                     <Link to="/OlvidasteContrasena">
-                    <Button className="btn" variant="primary" type="submit" >
-                        ¿Olvidaste tu contraseña?
-                    </Button>
+                        <Button className="btn" variant="primary" type="submit" >
+                            ¿Olvidaste tu contraseña?
+                        </Button>
                     </Link>
                 </div>
-
-
-
             </div>
             <ToastContainer className="p-3" position="middle-center">
                 <Toast show={showA}>

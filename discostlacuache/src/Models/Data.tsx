@@ -6,14 +6,10 @@ import { Cuenta } from "./Gestion_Cuenta/Cuenta";
 
 export class Data {
     Autorizacion: Autenticacion;
-    Personal: Cuenta | undefined;
+    Personal: Cuenta;
 
-    constructor(Autorizacion: Autenticacion){
-        console.log("Objeto Data Creado correctamente ✅");
+    constructor(Autorizacion: Autenticacion, Personal : Cuenta){
         this.Autorizacion = Autorizacion; 
-    }
-
-    setPersonal(Personal: Cuenta){
-        this.Personal = Personal
+        this.Personal = Personal;
     }
 }

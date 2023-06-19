@@ -1,23 +1,15 @@
-
-
-import './UI_Registrate.css'
-
 //Importacion de CSS
+import './UI_Registrate.css';
 
 //Importacion de Packages
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
-import { motion } from "framer-motion"
-import { useNavigate } from "react-router-dom"
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import Toast from 'react-bootstrap/Toast';
-import * as FcIcons from 'react-icons/fc'
-import * as IoIcons from 'react-icons/io5'
-import Logo from '../../../assets/Logo/Logo.svg';
-
-//import { useAuthStore } from '../../store/AuthStore';
-import './UI_Registrate.css'
+import * as IoIcons from 'react-icons/io5';
 
 //Importacion de Controller
 import * as Controller_Autorizacion from '../../../Controllers/Controller_Autorizacion'
@@ -45,7 +37,6 @@ function UI_Registrate() {
 
     //Carga de datos a DataForm
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-
         const { name, value } = event.target
         setForm({
             ...data,
@@ -61,11 +52,10 @@ function UI_Registrate() {
         if (form.checkValidity() === false) {
             event.stopPropagation();
         } else {
-            console.log("Enviando desde Vista ✅     Archivo: UI_Login.tsx")
             //Si la funcion de Controller Inicio_Sesion() es falsa este habilitara una notificacion con el msj = Correo o contraseña incorrectos 🙁
             if (await Controller_Autorizacion.Registrarme(data.nombres, data.apellidos, data.telefono, data.email, data.password, navigate) == false) {
                 toggleShowA();
-            }else{
+            } else {
                 toggleShowB();
             }
         }
@@ -82,7 +72,6 @@ function UI_Registrate() {
         >
             <div className="IU_Registrate contenedor_autorizacion">
                 <h1>Registrate</h1>
-
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Nombre(s): </Form.Label>
@@ -104,7 +93,7 @@ function UI_Registrate() {
                         <Form.Label>Contraseña: </Form.Label>
                         <Form.Control type="text" placeholder="email@example.com" name="password" onChange={onChange} required />
                     </Form.Group>
-                    
+
                     <Button className="btn" variant="primary" type="submit" >
                         Registrate <IoIcons.IoLogIn size={25} />
                     </Button>

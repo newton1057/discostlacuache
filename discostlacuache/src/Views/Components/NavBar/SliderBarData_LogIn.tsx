@@ -1,18 +1,17 @@
 import * as MdIcons from "react-icons/md";
 
-export const SideBarData = [
+export const SideBarData_LogIn = [
     {
-        title: 'Acceder',
+        title: 'Mi cuenta',
         path: '/Login',
         icon: <MdIcons.MdLogin />,
         cName: 'nav-text'
     },
-    {   
+    {
         title: 'Home',
         path: '/',
-        icon: <MdIcons.MdHome/>,
+        icon: <MdIcons.MdHome />,
         cName: 'nav-text'
-
     },
     {
         title: 'Categorias',
@@ -39,7 +38,14 @@ export const SideBarData = [
     {
         title: 'Reproductor de Musica',
         path: '/ReproductorMusica',
-        icon: <MdIcons.MdHeadphones/>,
+        icon: <MdIcons.MdHeadphones />,
         cName: 'nav-text'
+    },
+    {
+        title: 'Cerrar sesión',
+        path: '/Login',
+        icon: <MdIcons.MdLogin />,
+        cName: 'nav-text nav_reproductor',
     }
+
 ]

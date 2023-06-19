@@ -1,6 +1,3 @@
-//Importacion de CSS
-import './UI_Olvidaste_Contrasena.css'
-
 //Importacion de Packages
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
@@ -9,7 +6,7 @@ import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import Toast from 'react-bootstrap/Toast';
-import {MdLockReset} from 'react-icons/md'
+import { MdLockReset } from 'react-icons/md'
 
 //import { useAuthStore } from '../../store/AuthStore';
 
@@ -24,17 +21,17 @@ const DataForm = {
 
 function UI_Olvidaste_Contrasena() {
     const navigate = useNavigate(); //Extrae la posicion de URL
-
     const [validated, setValidated] = useState(false);
     const [data, setForm] = useState(DataForm);
 
     const [showA, setShowA] = useState(false);
     const toggleShowA = () => setShowA(!showA);
+
     const [showB, setShowB] = useState(false);
     const toggleShowB = () => setShowB(!showA);
+
     //Carga de datos a DataForm
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-
         const { name, value } = event.target
         setForm({
             ...data,
@@ -54,7 +51,7 @@ function UI_Olvidaste_Contrasena() {
             //Si la funcion de Controller Inicio_Sesion() es falsa este habilitara una notificacion con el msj = Correo o contraseña incorrectos 🙁
             if (await Controller_Autorizacion.Recuperar_Password(data.email, navigate) == false) {
                 toggleShowA();
-            }else{
+            } else {
                 toggleShowB();
             }
         }
@@ -73,28 +70,22 @@ function UI_Olvidaste_Contrasena() {
                 <h1>¿Olvidaste tu contraseña?</h1>
 
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                    
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Tu correo electronico: </Form.Label>
                         <Form.Control type="text" placeholder="email@example.com" name="email" onChange={onChange} required />
                     </Form.Group>
+
                     <hr className="hr-text" data-content="or"></hr>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Telefono: </Form.Label>
                         <Form.Control type="number" placeholder="Telefono" name="email" onChange={onChange} disabled />
                     </Form.Group>
-                    
+
                     <Button className="btn" variant="primary" type="submit" >
                         Recuperar contraseña <MdLockReset size={25} />
                     </Button>
                 </Form>
-
-
-                
-
-
-
             </div>
             <ToastContainer className="p-3" position="middle-center">
                 <Toast show={showA} >

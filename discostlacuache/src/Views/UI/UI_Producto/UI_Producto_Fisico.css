@@ -11,17 +11,18 @@
     border: 4px solid #F3E600;
 }
 
-
 .Producto_Fisico_Nombre_Album{
     text-align: center;
     margin-top: 5%;
 }
+
 .Producto_Fisico_Contenedor{
     width: 80%;
     margin: auto;
     margin-top: 5%;
     margin-bottom: 10%;
 }
+
 .Producto_Fisico_Contenedor_Opciones{
     width: 100%;
     display: flex;
@@ -39,7 +40,3 @@
     display: grid;
     gap: 20px;
 }
-
-
-
-

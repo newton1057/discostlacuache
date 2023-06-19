@@ -1,5 +1,4 @@
-
-//Clase del Objeto Musica
+//Clase del Objeto Album
 export class Album {
     //Atributos
     private Autor: string;
@@ -8,35 +7,43 @@ export class Album {
     private Nombre: string;
     private URL_Photo: string;
     private Fecha_Lanzamiento: string;
+    private Precio: string;
 
     //Getters
-    get getAutor(){
+    get getPrecio() {
+        return this.Precio;
+    }
+    get getAutor() {
         return this.Autor;
     }
 
-    get getDisquera(){
+    get getDisquera() {
         return this.Disquera;
     };
 
-    get getGenero(){
+    get getGenero() {
         return this.Genero;
     }
 
-    get getNombre(){
+    get getNombre() {
         return this.Nombre;
     }
-    
-    get getURL_Photo(){
+
+    get getURL_Photo() {
         return this.URL_Photo;
     }
 
-    get getFecha_Lanzamiento(){
+    get getFecha_Lanzamiento() {
         return this.Fecha_Lanzamiento;
     }
 
     //Setters
     set setAutor(Autor: string) {
         this.Autor = Autor;
+    }
+
+    set setPrecio(Precio: string) {
+        this.Precio = Precio
     }
 
     set setDisquera(Disquera: string) {
@@ -47,7 +54,7 @@ export class Album {
         this.Genero = Genero;
     }
 
-    set setNombre(Nombre:string){
+    set setNombre(Nombre: string) {
         this.Nombre = Nombre;
     }
 
@@ -55,18 +62,18 @@ export class Album {
         this.URL_Photo = URL_Photo;
     }
 
-    set setFecha_Lanzamiento(Fecha_Lanzamiento:string){
+    set setFecha_Lanzamiento(Fecha_Lanzamiento: string) {
         this.Fecha_Lanzamiento = Fecha_Lanzamiento;
     }
 
     //Constructor del Objeto
-    constructor(Nombre: string, Autor: string, Disquera: string, Genero: string, URL_Photo: string, Fecha_Lanzamiento: string) {
+    constructor(Nombre: string, Autor: string, Disquera: string, Genero: string, URL_Photo: string, Fecha_Lanzamiento: string, Precio: string) {
         this.Nombre = Nombre;
         this.Autor = Autor;
         this.Disquera = Disquera;
         this.Genero = Genero;
         this.URL_Photo = URL_Photo;
         this.Fecha_Lanzamiento = Fecha_Lanzamiento;
-        console.log("Objeto Album creado correctamente ✅")
+        this.Precio = Precio;
     }
 }
